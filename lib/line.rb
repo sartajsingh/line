@@ -10,7 +10,7 @@ class Line
   end
  
   def calculate_length
-    Math.sqrt((@starting_x-@ending_x)**2 + (@starting_y-@ending_y)**2)
+    Math.sqrt((self.starting_x-self.ending_x)**2 + (self.starting_y-self.ending_y)**2)
   end
 
 end
