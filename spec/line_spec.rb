@@ -6,8 +6,10 @@ require 'spec_helper'
    line_x  = Line.new(point_a,point_b)
    line_y  = Line.new(point_b,point_a)
    line_z  = Line.new(point_a,point_c)
+   line_x  = Line.new(point_a,point_b)
    line_o  = Line.new(point_c,point_d)
-
+   line_i  = Line.new(point_b,point_c)
+   line_a  = Line.new(point_b,point_d)
 describe 'calculate_length' do
  it 'should return the correct distance' do
    expect(line_x.calculate_length).to eq (Math.sqrt((2-1)**2 + (2-1)**2))
@@ -39,15 +41,34 @@ describe 'check_equal' do
 end
 
 describe 'calculate_slope' do
-  it 'should return the slope' do
-    expect(line_x.calculate_slope).to eq 1
+   line_i  = Line.new(point_b,point_c)
+   point_b = Point.new(1,1)
+   point_c = Point.new(1,3)
+   line_x  = Line.new(point_a,point_b)
+  it 'should return the slope when defined' do
+    expect(line_x.calculate_slope).to eq ((2-1) / (2-1))
+  end
+  it 'should return undefined when slope is infinity' do
+    expect(line_i.calculate_slope).to eq ("undefined")
   end
 end
 
 describe 'check_orthogonality' do
-  it 'should return true if orthogonal' do
+   point_a = Point.new(2,2)
+   point_b = Point.new(1,1)
+   point_c = Point.new(1,3)
+   point_d = Point.new(3,1)
+   line_x  = Line.new(point_a,point_b)
+   line_o  = Line.new(point_c,point_d)
+   line_i  = Line.new(point_b,point_c)
+   line_a  = Line.new(point_b,point_d)
+  it 'should return true if orthogonal and both slopes are defined' do
     expect(line_x.check_orthogonality line_o).to eq true
   end
+  it 'should return true if orthogonal and one line slope is undefined' do
+    expect(line_a.check_orthogonality line_i).to eq true
+  end
+
   it 'should return false if not orthogonal' do
     expect(line_x.check_orthogonality line_y).to eq false
   end
