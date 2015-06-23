@@ -3,16 +3,11 @@ class Line
 
   def initialize first_point ,second_point
     @first_point = first_point
-    @starting_x = first_point.x_coordinate
-    @starting_y = first_point.y_coordinate
-
     @second_point = second_point
-    @final_x = second_point.x_coordinate
-    @final_y = second_point.y_coordinate
   end
 
   def calculate_length
-    Math.sqrt((@starting_x - @final_x)**2 + (@starting_y - @final_y)**2)
+    Math.sqrt((self.first_point.x_coordinate - self.second_point.x_coordinate)**2 + (self.first_point.y_coordinate - self.second_point.y_coordinate )**2)
   end
 
   def self.check_equality line_a ,line_b
@@ -35,6 +30,15 @@ class Line
     end
   end
 
+  def calculate_slope
+    (self.first_point.y_coordinate - self.second_point.y_coordinate) / (self.first_point.x_coordinate - self.second_point.x_coordinate)
+  end
+
+  def check_orthogonality line_b
+   if self.calculate_slope * line_b.calculate_slope == -1
+    true
+   else
+    false
+   end
+  end
 end
-
-
