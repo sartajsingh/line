@@ -33,6 +33,19 @@ describe 'Rectangle' do
     end
   end
 
+  describe 'validate' do
+    it 'returns true if rectangle is valid' do
+      expect(Rectangle.validate(point_p,point_q,point_r,point_s)).to eq true
+    end
+
+    it 'returns false if rectangle is invalid' do
+      point_t = Point.new(7,11)
+      point_u = Point.new(10,9)
+      expect(Rectangle.validate(point_p,point_t,point_s,point_u)).to eq false
+    end
+
+  end
+
   describe 'area' do
     it 'returns correct area from length and breadth' do
       expect(Rectangle.new_initialize(2,1).area).to eq(2*1)
@@ -54,3 +67,5 @@ describe 'Rectangle' do
   end
 
 end
+
+

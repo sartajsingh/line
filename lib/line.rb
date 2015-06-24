@@ -35,7 +35,7 @@ class Line
     if self.first_point.x_coordinate == self.second_point.x_coordinate
         "undefined"
     else
-       (self.first_point.y_coordinate - self.second_point.y_coordinate) / (self.first_point.x_coordinate - self.second_point.x_coordinate)
+      (self.first_point.y_coordinate - self.second_point.y_coordinate).to_f / (self.first_point.x_coordinate - self.second_point.x_coordinate).to_f
     end
   end
 
