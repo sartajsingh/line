@@ -1,5 +1,6 @@
 require "./lib/point"
 require "./lib/line"
+require "./lib/Rectangle"
 RSpec.configure do |config|
   config.expect_with :rspec do |expectation|
     expectation.include_chain_clauses_in_custom_matcher_descriptions = true

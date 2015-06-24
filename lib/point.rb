@@ -1,5 +1,6 @@
 class Point
- attr_accessor :x_coordinate ,:y_coordinate
+
+  attr_accessor :x_coordinate ,:y_coordinate
 
  def initialize x_coordinate ,y_coordinate
   @x_coordinate = x_coordinate
@@ -13,4 +14,5 @@ class Point
     false
   end
  end
+
 end
