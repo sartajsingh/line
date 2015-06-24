@@ -12,7 +12,20 @@ class Rectangle
       end
   end
 
-  def self.new_initialize length ,breadth
+  def self.check_unit side ,unit
+      if unit == "m"
+         return side *= 1000
+      elsif unit == "cm"
+         return side *= 10
+      else
+         return side
+      end
+  end
+
+  def self.new_initialize length ,l_unit ,breadth ,b_unit
+      length = Rectangle.check_unit length ,l_unit
+      breadth = Rectangle.check_unit breadth ,b_unit
+
       point_a = Point.new(0,0)
       point_b = Point.new(0,breadth)
       point_c = Point.new(length,breadth)
